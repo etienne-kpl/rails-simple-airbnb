@@ -1,0 +1,57 @@
+<div class="row">
+  <div class="col-sm-8">
+    <div class="bg-light p-4 mb-4">
+      <h1><%= @flat.name %></h1>
+      <p><%= @flat.address %></p>
+    </div>
+
+    <div class="bg-light p-4 mb-4">
+      <h2>A bit more about this flat...</h2>
+      <p><%= @flat.description %></p>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="bg-light p-4 mb-4">
+      <p class='h5'>Book this place!</p>
+      <form>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <div class="input-group-text">From:</div>
+          </div>
+          <input type="date" class="form-control" id="from">
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <div class="input-group-text">To:</div>
+          </div>
+          <input type="date" class="form-control" id="to">
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Book</button>
+      </form>
+    </div>
+    <div class="bg-light p-4 mb-4">
+      <h2>Details</h2>
+      <div class="d-flex mt-3">
+        <div>
+          <i class="fa-solid fa-people-line"></i><span><%= @flat.number_of_guests %></span>
+        </div>
+        <div class="ms-3">
+          <i class="fa-solid fa-euro-sign"></i><span><%= @flat.price_per_night %></span>
+        </div>
+      </div>
+    </div>
+    <div class="bg-light p-4 mb-4">
+      <div class="d-flex justify-content-between align-items-center">
+        <strong>Share</strong>
+        <div class='d-flex'>
+          <i class="ms-1 fa-lg fa-brands fa-facebook-square me-2"></i>
+          <i class="ms-1 fa-lg fa-brands fa-twitter-square me-2"></i>
+          <i class="ms-1 fa-lg fa-brands fa-pinterest-square me-2"></i>
+        </div>
+      </div>
+    </div>
+    <%= link_to 'Edit flat', edit_flat_path(@flat), class: 'btn btn-outline-primary' %>
+    <%= link_to 'Delete flat', flat_path(@flat), data: { turbo_method: 'delete', turbo_confirm: 'Are you sure?' }, class: 'btn btn-outline-danger ms-1' %>
+
+  </div>
+</div>

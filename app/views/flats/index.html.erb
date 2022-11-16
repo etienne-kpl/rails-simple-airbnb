@@ -1,0 +1,28 @@
+<h1>All our Flats</h1>
+<p>All <%= @flats.count %> flats.</p>
+<div class="row">
+  <% @flats.each do |flat| %>
+    <div class="col-md-4">
+      <div class='card mb-4'>
+        <%# <img class="card-img-top" src="https://via.placeholder.com/300x150" alt="Card image cap"> %>
+        <div class="card-header p-3">
+          <h5 class="card-title"><%= flat.name %></h5>
+          <small class="card-text"><%= flat.address %></small>
+          <div class="d-flex mt-3">
+            <div>
+              <i class="fa-solid fa-people-line"></i><span><%= flat.number_of_guests %></span>
+            </div>
+            <div class="ms-3">
+              <i class="fa-solid fa-euro-sign"></i><span><%= flat.price_per_night %></span>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <%= link_to 'More info', flat_path(flat.id) %>
+          <%= link_to 'Edit flat', edit_flat_path(flat.id), class: 'ms-3 text-warning' %>
+          <%= link_to 'Delete flat', flat_path(flat.id), data: { turbo_method: 'delete', turbo_confirm: 'Are you sure?' }, class: 'ms-3 text-danger' %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
